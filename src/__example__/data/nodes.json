@@ -1,0 +1,185 @@
+[
+  {
+    "id": "n1",
+    "name": "Schritt 1",
+    "edges": [
+      {
+        "id": "e1",
+        "to": "n2"
+      }
+    ]
+  },
+  {
+    "id": "n2",
+    "name": "Schritt 2 - Kreuzung",
+    "edges": [
+      {
+        "id": "e2",
+        "to": "n3",
+        "isEnabledOn": {
+          "===": [
+            { "var": "values.p2" },
+            "n3"
+          ]
+        },
+        "priority": 1
+      },
+      {
+        "id": "e3",
+        "to": "n4"
+      }
+    ]
+  },
+  {
+    "id": "n3",
+    "name": "Schritt 3",
+    "edges": [
+      {
+        "id": "e4",
+        "to": "n4"
+      }
+    ]
+  },
+  {
+    "id": "n4",
+    "name": "Schritt 4",
+    "edges": [
+      {
+        "id": "e5",
+        "to": "n5"
+      }
+    ]
+  },
+  {
+    "id": "n5",
+    "name": "Schritt 5 - Kreuzung",
+    "edges": [
+      {
+        "id": "e6",
+        "to": "n6",
+        "isEnabledOn": {
+          "===": [
+            { "var": "values.p5" },
+            "n6"
+          ]
+        },
+        "priority": 1
+      },
+      {
+        "id": "e7",
+        "to": "n13"
+      }
+    ]
+  },
+  {
+    "id": "n6",
+    "name": "Schritt 6",
+    "edges": [
+      {
+        "id": "e8",
+        "to": "n7"
+      }
+    ]
+  },
+  {
+    "id": "n7",
+    "name": "Schritt 7 - Kreuzung",
+    "edges": [
+      {
+        "id": "e9",
+        "to": "n8",
+        "isEnabledOn": {
+          "===": [
+            { "var": "values.p7" },
+            "n8"
+          ]
+        },
+        "priority": 1
+      },
+      {
+        "id": "e10",
+        "to": "n13"
+      }
+    ]
+  },
+  {
+    "id": "n8",
+    "name": "Schritt 8 - Kreuzung",
+    "edges": [
+      {
+        "id": "e11",
+        "to": "n9",
+        "isEnabledOn": {
+          "===": [
+            { "var": "values.p8" },
+            "n9"
+          ]
+        },
+        "priority": 1
+      },
+      {
+        "id": "e12",
+        "to": "n11"
+      }
+    ]
+  },
+  {
+    "id": "n9",
+    "name": "Schritt 9",
+    "edges": [
+      {
+        "id": "e13",
+        "to": "n10"
+      }
+    ]
+  },
+  {
+    "id": "n10",
+    "name": "Schritt 10",
+    "edges": [
+      {
+        "id": "e14",
+        "to": "n11"
+      }
+    ]
+  },
+  {
+    "id": "n11",
+    "name": "Schritt 11",
+    "edges": [
+      {
+        "id": "e15",
+        "to": "n12"
+      }
+    ]
+  },
+  {
+    "id": "n12",
+    "name": "Schritt 12"
+  },
+  {
+    "id": "n13",
+    "name": "Schritt 13 - Kreuzung",
+    "edges": [
+      {
+        "id": "e16",
+        "to": "n11",
+        "isEnabledOn": {
+          "===": [
+            { "var": "values.p13" },
+            "n11"
+          ]
+        },
+        "priority": 1
+      },
+      {
+        "id": "e17",
+        "to": "n14"
+      }
+    ]
+  },
+  {
+    "id": "n14",
+    "name": "Schritt 14"
+  }
+]

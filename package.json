@@ -56,5 +56,8 @@
   "peerDependencies": {
     "prop-types": "^15.8.0",
     "react": "^17.0.2"
+  },
+  "dependencies": {
+    "json-logic-js": "^2.0.1"
   }
 }

@@ -1,0 +1,32 @@
+import GraphFactory from '../../factories/GraphFactory';
+import nodesData from '../../__example__/data/nodes.json';
+import path1Context from '../../__example__/data/context/path1.json';
+import path2Context from '../../__example__/data/context/path2.json';
+import path3Context from '../../__example__/data/context/path3.json';
+import { path1, path2, path3 } from '../../__example__/data/context/debug';
+
+describe('GraphFactory', () => {
+  it('creates a graph from a plain data source', () => {
+    const graphFactory = new GraphFactory(nodesData);
+    const graph = graphFactory.createGraph();
+
+    expect(graph.print(path1Context)).toEqual(path1);
+    expect(graph.print(path2Context)).toEqual(path2);
+    expect(graph.print(path3Context)).toEqual(path3);
+  });
+
+  describe('data-source', () => {
+    it('throws when an edge points to a non-existing node', () => {
+      const invalidNodesData = [{
+        id: 'n1',
+        name: 'Schritt 1',
+        edges: [{ id: 'e1', to: 'n2' }],
+      }];
+      const graphFactory = new GraphFactory(invalidNodesData);
+
+      expect(() => {
+        graphFactory.createGraph();
+      }).toThrowError('Invalid data source: Edge \'e1\' points to a non-existing node');
+    });
+  });
+});
