@@ -1,13 +1,13 @@
-import Graph from '../../graph/Graph';
-import Node from '../../graph/Node';
-import Edge from '../../graph/Edge';
+import Graph from '../../src/graph/Graph';
+import Node from '../../src/graph/Node';
+import Edge from '../../src/graph/Edge';
 
 describe('Graph', () => {
-  let graph1;
-  let node1;
-  let node2;
-  let node3;
-  let node4;
+  let graph1: Graph;
+  let node1: Node;
+  let node2: Node;
+  let node3: Node;
+  let node4: Node;
 
   const contextShortPath = {
     values: {
@@ -42,19 +42,18 @@ describe('Graph', () => {
     expect(graph1.id).toBe('g1');
   });
 
-  it('protects read-only fields', () => {
-    expect(() => {
-      graph1.id = 'gX';
-    }).toThrow();
-    expect(graph1.id).toBe('g1');
-  });
-
   it('sets starting node', () => {
     graph1.setStart(node1);
 
     expect(graph1).toEqual({
       start: node1,
     });
+  });
+
+  it('throws when trying to access active path without a start node', () => {
+    expect(() => {
+      graph1.getActivePath(contextShortPath);
+    }).toThrowError('Graph has no start node');
   });
 
   // TODO Or store context in graph and have graph.updateContext(context) ?

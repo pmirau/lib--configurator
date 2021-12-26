@@ -1,11 +1,12 @@
-import Node from '../../graph/Node';
-import Edge from '../../graph/Edge';
+import Node from '../../src/graph/Node';
+import Edge from '../../src/graph/Edge';
+import { RulesLogic } from 'json-logic-js';
 
 describe('Node', () => {
-  let node1;
-  let node2;
-  let node3;
-  let node4;
+  let node1: Node;
+  let node2: Node;
+  let node3: Node;
+  let node4: Node;
 
   beforeEach(() => {
     node1 = new Node('n1');
@@ -18,13 +19,6 @@ describe('Node', () => {
     expect(node1).toEqual({
       edges: new Map(),
     });
-    expect(node1.id).toBe('n1');
-  });
-
-  it('protects read-only fields', () => {
-    expect(() => {
-      node1.id = 'nX';
-    }).toThrow();
     expect(node1.id).toBe('n1');
   });
 
@@ -72,7 +66,7 @@ describe('Node', () => {
         },
       };
 
-      const isEnabledOn = {
+      const isEnabledOn: RulesLogic = {
         and: [
           { '===': [{ var: 'values.atlas' }, 'air'] },
           { '===': [{ var: 'values.paradise' }, 'circus'] },

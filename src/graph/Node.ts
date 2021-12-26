@@ -1,18 +1,18 @@
+import Edge from './Edge';
+import { ConditionalContext } from '../types';
+
 export default class Node {
-  #_id;
-  edges = new Map();
+  readonly #_id: string;
+  edges: Map<string, Edge> = new Map();
 
   /**
-   * @param {string} id
+   * @param id - ID of Node
    */
-  constructor(id) {
+  constructor(id: string) {
     this.#_id = id;
   }
 
-  /**
-   * @param {Edge} edge
-   */
-  addEdge(edge) {
+  addEdge(edge: Edge) {
     if (edge.to.id === this.#_id) {
       throw new Error('No self-referencing nodes allowed');
     }
@@ -20,28 +20,29 @@ export default class Node {
     this.edges.set(edge.id, edge);
   }
 
-  get id() {
+  get id(): string {
     return this.#_id;
   }
 
   // TODO Is executed on every query -> Performance issue? Maybe set next from elsewhere on specific
   //  events instead on every query? (or sorted list by priority)
   /**
-   * @param {module:configurator/graph/ConditionalContext} context - Context that will be injected
-   *   into the test method
-   * @returns {Node} - Enabled node with the lowest priority
+   * @param context - Context that will be injected into the test method
+   * @returns Enabled node with the lowest priority
    */
-  next(context) {
+  next(context?: ConditionalContext): Node {
     return Node.#getPrioritizedEdge(Node.#getEnabledEdges(this.edges, context))?.to; // TODO: Remove '?'
   }
 
   /**
-   * @param {Map<Edge>} edges - Edges to search through
-   * @param {module:configurator/graph/ConditionalContext} context - Context that will be injected
-   *   into the test method
-   * @return {Map<Edge>} - Enabled edges
+   * @param edges - Edges to search through
+   * @param context - Context that will be injected into the test method
+   * @return Enabled edges
    */
-  static #getEnabledEdges(edges, context) {
+  static #getEnabledEdges(
+    edges: Map<string, Edge>,
+    context?: ConditionalContext
+  ): Map<string, Edge> {
     const enabledEdges = new Map();
 
     edges.forEach((value, key) => {
@@ -55,10 +56,10 @@ export default class Node {
 
   /**
    * Get the edge with the lowest priority
-   * @param {Map<Edge>} edges - Edges to search through
-   * @return {Edge}
+   * @param edges - Edges to search through
+   * @return
    */
-  static #getPrioritizedEdge(edges) {
+  static #getPrioritizedEdge(edges: Map<string, Edge>): Edge {
     let [prioritizedEdge] = edges.values();
 
     edges.forEach((value) => {

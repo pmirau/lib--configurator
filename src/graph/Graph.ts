@@ -1,32 +1,39 @@
+import Node from './Node';
+import { ConditionalContext } from '../types';
+
 /**
  * Tree-like graph
  */
 export default class Graph {
-  #_id;
-  start;
+  readonly #_id: string;
+  start?: Node;
 
-  constructor(id) {
+  constructor(id: string) {
     this.#_id = id;
   }
 
-  get id() {
+  get id(): string {
     return this.#_id;
   }
 
   /**
    * Set starting node
-   * @param {Node} node - Starting node
+   * @param node - Starting node
    */
-  setStart(node) {
+  setStart(node: Node) {
     this.start = node;
   }
 
   /**
    * Return the valid path
-   * @param {module:configurator/graph/ConditionalContext} context - Context for 'next'-nodes
-   * @return {Node[]} - Path of nodes
+   * @param context - Context for 'next'-nodes
+   * @return - Path of nodes
    */
-  getActivePath(context) {
+  getActivePath(context: ConditionalContext): Node[] {
+    if (this.start == undefined) {
+      throw new Error('Graph has no start node');
+    }
+
     const path = [this.start];
     let next = this.start.next(context);
 
@@ -40,10 +47,9 @@ export default class Graph {
 
   /**
    * Prints a string of the active path. For debug purposes.
-   * @param {module:configurator/graph/ConditionalContext} context - Context for 'next'-nodes
-   * @return {string}
+   * @param context - Context for 'next'-nodes
    */
-  print(context) {
+  print(context: ConditionalContext): string {
     const activePath = this.getActivePath(context);
     let pathString = '';
 

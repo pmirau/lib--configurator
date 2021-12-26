@@ -1,9 +1,10 @@
-import Node from '../../graph/Node';
-import Edge from '../../graph/Edge';
+import Node from '../../src/graph/Node';
+import Edge from '../../src/graph/Edge';
+import { RulesLogic } from 'json-logic-js';
 
 describe('Edge', () => {
-  let node1;
-  let edge1;
+  let node1: Node;
+  let edge1: Edge;
 
   beforeEach(() => {
     node1 = new Node('n1');
@@ -36,14 +37,14 @@ describe('Edge', () => {
       },
     };
 
-    const isDisabledOn = {
+    const isDisabledOn: RulesLogic = {
       '===': [
         { var: 'values.luckyNumber' },
         777,
       ],
     };
 
-    const isEnabledOn = {
+    const isEnabledOn: RulesLogic = {
       or: [
         {
           and: [
