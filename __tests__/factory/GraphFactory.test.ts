@@ -1,9 +1,9 @@
 import GraphFactory from '../../src/factories/GraphFactory';
-import nodesData from '../../src/__example__/data/nodes.json';
-import path1Context from '../../src/__example__/data/context/path1.json';
-import path2Context from '../../src/__example__/data/context/path2.json';
-import path3Context from '../../src/__example__/data/context/path3.json';
-import { path1, path2, path3 } from '../../src/__example__/data/context/debug';
+import nodesData from '../../src/__example__/data/graph/nodes.json';
+import path1Context from '../../src/__example__/data/graph/context/path1.json';
+import path2Context from '../../src/__example__/data/graph/context/path2.json';
+import path3Context from '../../src/__example__/data/graph/context/path3.json';
+import { path1, path2, path3 } from '../../src/__example__/data/graph/context/debug';
 
 describe('GraphFactory', () => {
   it('creates a graph from a plain data source', () => {
