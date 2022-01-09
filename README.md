@@ -81,3 +81,24 @@ disabledConditional > enabledConditional -> one method: testIfEnabled(context)
 ## TODO
 - ID in Edges necessary? 
     - Private id etc evtl. öffentlich. Ist für debug interessant (No premature optimization)
+
+# InputList (Group / Prop)
+
+Beispielhafter Aufbau:
+
+```
+|-- prop
+|-- _group
+    |-- prop
+    |-- prop
+    |-- _group
+        |-- prop
+        |-- prop
+|-- prop
+|-- prop
+```
+
+The InputList is a tree, where the leaf must always be a Prop.
+A Group has children, which are either another Group or a Prop.
+
+A Prop contains one Input (fe. `text`, `number`, `checkbox`, `checkboxGroup`, ...)
