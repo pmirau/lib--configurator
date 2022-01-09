@@ -1,6 +1,6 @@
+import { RulesLogic } from 'json-logic-js';
 import Node from '../../src/graph/Node';
 import Edge from '../../src/graph/Edge';
-import { RulesLogic } from 'json-logic-js';
 
 describe('Edge', () => {
   let node1: Node;
@@ -19,6 +19,7 @@ describe('Edge', () => {
     expect(edge1.id).toBe('e1');
   });
 
+  // TODO Duplication - Use Visibility in Graph
   describe('testIfEnabled()', () => {
     const contextTrue = {
       values: {
