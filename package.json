@@ -67,6 +67,7 @@
     "react": "^17.0.2"
   },
   "dependencies": {
+    "@pmirau/lib--react-form": "~0",
     "@types/json-logic-js": "^1.2.1",
     "json-logic-js": "^2.0.1"
   }
