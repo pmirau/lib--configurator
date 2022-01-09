@@ -1,6 +1,6 @@
 {
   "name": "@pmirau/lib--configurator",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Graph-based engine for a (product) configurator",
   "main": "dist/main.js",
   "files": [
