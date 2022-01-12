@@ -15,9 +15,6 @@ export default class Group implements Printable {
     this.visibility = visibility || new Visibility()
   }
 
-  /**
-   * Print the id of the input when this prop is visible (Created for debug purposes)
-   */
   print({
     showHidden = false,
     context,

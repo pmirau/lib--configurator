@@ -3,6 +3,7 @@
  * @property values - "Form values" of the properties. (key=id_of_property)
  */
 import { RulesLogic } from 'json-logic-js';
+import { Inputs } from '@pmirau/lib--react-form'
 
 export interface ConditionalContext {
   values: {
@@ -34,4 +35,24 @@ export interface EdgePOJO {
 export interface NodePOJO {
   id: string;
   edges?: EdgePOJO[]
+}
+
+/**
+ * Prop in POJO
+ */
+export interface PropPOJO {
+  type: 'prop',
+  input: Inputs,
+  hiddenOn?: RulesLogic;
+  visibleOn?: RulesLogic;
+}
+
+/**
+ * Group in POJO
+ */
+export interface GroupPOJO {
+  type: 'group'
+  children: (GroupPOJO | PropPOJO)[]
+  hiddenOn?: RulesLogic;
+  visibleOn?: RulesLogic;
 }

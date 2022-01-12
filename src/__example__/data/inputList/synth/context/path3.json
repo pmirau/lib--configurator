@@ -1,0 +1,9 @@
+{
+  "values": {
+    "number-osc": 3,
+    "osc-1-wave": true,
+    "osc-2-wave": false,
+    "osc-3-wave": true,
+    "has-noise": false
+  }
+}

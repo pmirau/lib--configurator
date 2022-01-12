@@ -1,0 +1,340 @@
+{
+  "type": "group",
+  "children": [
+    {
+      "type": "prop",
+      "input": {
+        "type": "number",
+        "id": "number-osc",
+        "label": "How many Oscillators do you want?",
+        "validation": {
+          "min": 1,
+          "max": 3
+        }
+      }
+    },
+    {
+      "type": "group",
+      "children": [
+        {
+          "type": "prop",
+          "input": {
+            "type": "checkboxGroup",
+            "id": "osc-1--octaves",
+            "label": "Which octaves should Osc-1 offer?",
+            "checkboxes": [
+              {
+                "id": "osc-1-octave--16",
+                "label": "16'"
+              },
+              {
+                "id": "osc-1-octave--8",
+                "label": "8'"
+              },
+              {
+                "id": "osc-1-octave--4",
+                "label": "4'"
+              },
+              {
+                "id": "osc-1-octave--2",
+                "label": "2'"
+              }
+            ]
+          }
+        },
+        {
+          "type": "group",
+          "children": [
+            {
+              "type": "prop",
+              "input": {
+                "type": "checkbox",
+                "id": "osc-1-wave",
+                "label": "Should the Osc have additional waveforms besides Sine?"
+              }
+            },
+            {
+              "type": "prop",
+              "input": {
+                "type": "checkboxGroup",
+                "id": "osc-1-waveforms",
+                "label": "What additional waveforms should Osc 1 have?",
+                "checkboxes": [
+                  {
+                    "id": "osc-1-waveform--triangle",
+                    "lable": "Triangle"
+                  },
+                  {
+                    "id": "osc-1-waveform--saw",
+                    "lable": "Saw"
+                  },
+                  {
+                    "id": "osc-1-waveform--square",
+                    "lable": "Square"
+                  }
+                ],
+                "validation": {
+                  "minCheckedItems": 1
+                }
+              },
+              "visibleOn": {
+                "===": [
+                  {
+                    "var": "values.osc-1-wave"
+                  },
+                  true
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "prop",
+          "input": {
+            "type": "checkbox",
+            "id": "osc-1-sub-osc",
+            "label": "Should Osc 1 have a sub-osc?"
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "visibleOn": {
+        ">": [
+          {
+            "var": "values.number-osc"
+          },
+          1
+        ]
+      },
+      "children": [
+        {
+          "type": "prop",
+          "input": {
+            "type": "checkboxGroup",
+            "id": "osc-2--octaves",
+            "label": "Which octaves should Osc-2 offer?",
+            "checkboxes": [
+              {
+                "id": "osc-2-octave--16",
+                "label": "16'"
+              },
+              {
+                "id": "osc-2-octave--8",
+                "label": "8'"
+              },
+              {
+                "id": "osc-2-octave--4",
+                "label": "4'"
+              },
+              {
+                "id": "osc-2-octave--2",
+                "label": "2'"
+              }
+            ]
+          }
+        },
+        {
+          "type": "group",
+          "children": [
+            {
+              "type": "prop",
+              "input": {
+                "type": "checkbox",
+                "id": "osc-2-wave",
+                "label": "Should the Osc have additional waveforms besides Sine?"
+              }
+            },
+            {
+              "type": "prop",
+              "input": {
+                "type": "checkboxGroup",
+                "id": "osc-2-waveforms",
+                "label": "What additional waveforms should Osc 2 have?",
+                "checkboxes": [
+                  {
+                    "id": "osc-2-waveform--triangle",
+                    "lable": "Triangle"
+                  },
+                  {
+                    "id": "osc-2-waveform--saw",
+                    "lable": "Saw"
+                  },
+                  {
+                    "id": "osc-2-waveform--square",
+                    "lable": "Square"
+                  }
+                ],
+                "validation": {
+                  "minCheckedItems": 1
+                }
+              },
+              "visibleOn": {
+                "===": [
+                  {
+                    "var": "values.osc-2-wave"
+                  },
+                  true
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "prop",
+          "input": {
+            "type": "checkbox",
+            "id": "osc-2-sub-osc",
+            "label": "Should Osc 2 have a sub-osc?"
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "visibleOn": {
+        ">": [
+          {
+            "var": "values.number-osc"
+          },
+          2
+        ]
+      },
+      "children": [
+        {
+          "type": "prop",
+          "input": {
+            "type": "checkboxGroup",
+            "id": "osc-3--octaves",
+            "label": "Which octaves should Osc-3 offer?",
+            "checkboxes": [
+              {
+                "id": "osc-3-octave--16",
+                "label": "16'"
+              },
+              {
+                "id": "osc-3-octave--8",
+                "label": "8'"
+              },
+              {
+                "id": "osc-3-octave--4",
+                "label": "4'"
+              },
+              {
+                "id": "osc-3-octave--2",
+                "label": "2'"
+              }
+            ]
+          }
+        },
+        {
+          "type": "group",
+          "children": [
+            {
+              "type": "prop",
+              "input": {
+                "type": "checkbox",
+                "id": "osc-3-wave",
+                "label": "Should the Osc have additional waveforms besides Sine?"
+              }
+            },
+            {
+              "type": "prop",
+              "input": {
+                "type": "checkboxGroup",
+                "id": "osc-3-waveforms",
+                "label": "What additional waveforms should Osc 3 have?",
+                "checkboxes": [
+                  {
+                    "id": "osc-3-waveform--triangle",
+                    "lable": "Triangle"
+                  },
+                  {
+                    "id": "osc-3-waveform--saw",
+                    "lable": "Saw"
+                  },
+                  {
+                    "id": "osc-3-waveform--square",
+                    "lable": "Square"
+                  }
+                ],
+                "validation": {
+                  "minCheckedItems": 1
+                }
+              },
+              "visibleOn": {
+                "===": [
+                  {
+                    "var": "values.osc-3-wave"
+                  },
+                  true
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "prop",
+          "input": {
+            "type": "checkbox",
+            "id": "osc-3-sub-osc",
+            "label": "Should Osc 3 have a sub-osc?"
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "children": [
+        {
+          "type": "prop",
+          "input": {
+            "type": "checkbox",
+            "id": "has-noise",
+            "label": "Add Noise Generator?"
+          }
+        },
+        {
+          "type": "prop",
+          "visibleOn": {
+            "===": [
+              {
+                "var": "values.has-noise"
+              },
+              true
+            ]
+          },
+          "input": {
+            "type": "radioGroup",
+            "id": "noise-type",
+            "label": "Which Noise type should the Generator have?",
+            "initialValue": "noise-type--white",
+            "buttons": [
+              {
+                "id": "noise-type--white",
+                "label": "White Noise"
+              },
+              {
+                "id": "noise-type--pink",
+                "label": "Pink Noise"
+              },
+              {
+                "id": "noise-type--brown",
+                "label": "Brown Noise"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "prop",
+      "input": {
+        "type": "checkbox",
+        "id": "has-feedback-loop",
+        "label": "Add Feedback Loop?"
+      }
+    }
+  ]
+}
